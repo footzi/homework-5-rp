@@ -17,7 +17,7 @@ describe('WithTooltip', () => {
       </WithTooltip>
     );
     const { getByTestId, getByText, queryByTestId } = render(<MockComponentWithTooltip />);
-    fireEvent.click(getByText('I must have tooltip'));
+    fireEvent.click(expect(getByTestId('tooltip')));
     expect(getByTestId('tooltip')).toHaveTextContent("Hello, i'm Tooltip");
     fireEvent.click(getByText('I must have tooltip'));
     expect(queryByTestId('tooltip')).toBeFalsy()
