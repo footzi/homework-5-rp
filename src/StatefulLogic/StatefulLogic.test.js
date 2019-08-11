@@ -1,8 +1,10 @@
 import React from 'react';
 import { WithTooltip } from './StatefulLogic';
+import { toHaveTextContent } from '@testing-library/jest-dom'
 import { render, cleanup, fireEvent } from '@testing-library/react';
 
 afterEach(cleanup);
+expect.extend({toHaveTextContent})
 
 /*
   Рекомендую уделить внимание чтению документации об использованных
