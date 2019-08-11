@@ -1,8 +1,10 @@
 import React from 'react';
 import { WithTooltip } from './StatefulLogic';
+import { toHaveTextContent } from '@testing-library/jest-dom'
 import { render, cleanup, fireEvent } from '@testing-library/react';
 
 afterEach(cleanup);
+expect.extend({toHaveTextContent})
 
 /*
   Рекомендую уделить внимание чтению документации об использованных
@@ -17,7 +19,7 @@ describe('WithTooltip', () => {
       </WithTooltip>
     );
     const { getByTestId, getByText, queryByTestId } = render(<MockComponentWithTooltip />);
-    fireEvent.click(expect(getByTestId('tooltip')));
+    fireEvent.click(getByText('I must have tooltip'));
     expect(getByTestId('tooltip')).toHaveTextContent("Hello, i'm Tooltip");
     fireEvent.click(getByText('I must have tooltip'));
     expect(queryByTestId('tooltip')).toBeFalsy()

@@ -12,5 +12,5 @@ import React, { Component } from 'react';
 */
 
 export const WrapWithAbsolutePosition = ({children}) => {
-  return <div style={{'position': 'absolute'}}>{children}</div>
+  return <div style={{'position': 'absolute'}}>{children()}</div>
 }
